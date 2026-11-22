@@ -1,0 +1,14 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno (claves y configuración local)
+.env
+.env.*
+
+# Compilación de producción de Vite
+dist/
+
+# Logs y archivos del sistema
+*.log
+.DS_Store
+Thumbs.db
