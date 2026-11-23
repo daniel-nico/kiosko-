@@ -52,9 +52,12 @@ export default function Categorias() {
 
   return (
     <>
-      <h2>Gestión de Categorías</h2>
+      <div className="encabezado-pagina">
+        <h2>Gestión de categorías</h2>
+      </div>
 
-      <form onSubmit={manejarEnvio} className="formulario">
+      <section className="tarjeta">
+      <form onSubmit={manejarEnvio} className="formulario-linea">
         <label className="campo">
           {editandoId ? "Editar categoría" : "Nueva categoría"}
           <input
@@ -64,7 +67,7 @@ export default function Categorias() {
           />
         </label>
         {error && <p className="error">{error}</p>}
-        <div style={{ display: "flex", gap: "8px" }}>
+        <div className="formulario-acciones">
           <button className="boton">
             {editandoId ? "Actualizar" : "Agregar"}
           </button>
@@ -82,7 +85,9 @@ export default function Categorias() {
           )}
         </div>
       </form>
+      </section>
 
+      <div className="tabla-contenedor">
       <table className="tabla">
         <thead>
           <tr>
@@ -94,9 +99,10 @@ export default function Categorias() {
           {categorias.map((cat) => (
             <tr key={cat.id}>
               <td>{cat.nombre}</td>
-              <td style={{ display: "flex", gap: "6px" }}>
+              <td>
+                <div className="acciones">
                 <button
-                  className="boton boton--secundario"
+                  className="boton boton--secundario boton--chico"
                   onClick={() => {
                     setEditandoId(cat.id);
                     setNombre(cat.nombre);
@@ -105,16 +111,18 @@ export default function Categorias() {
                   Editar
                 </button>
                 <button
-                  className="boton boton--peligro"
+                  className="boton boton--peligro boton--chico"
                   onClick={() => manejarEliminar(cat.id)}
                 >
                   Borrar
                 </button>
+                </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
     </>
   );
 }

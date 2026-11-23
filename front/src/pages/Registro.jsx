@@ -29,36 +29,42 @@ export default function Registro() {
   }
 
   return (
-    <main className="contenedor" style={{ maxWidth: "400px" }}>
-      <h2>Crear cuenta</h2>
-      <form onSubmit={manejarEnvio} className="formulario">
-        <label className="campo">
-          Usuario
-          <input
-            name="nombre"
-            value={datos.nombre}
-            onChange={manejarCambio}
-            required
-          />
-        </label>
-        <label className="campo">
-          Contraseña
-          <input
-            type="password"
-            name="password"
-            value={datos.password}
-            onChange={manejarCambio}
-            required
-          />
-        </label>
-        {error && <p className="error">{error}</p>}
-        <button className="boton" disabled={enviando}>
-          {enviando ? "Creando..." : "Registrarse"}
-        </button>
-      </form>
-      <p>
-        ¿Ya tenés cuenta? <Link to="/login">Iniciá sesión</Link>
-      </p>
+    <main className="auth-pantalla">
+      <div className="auth-tarjeta">
+        <div className="auth-icono">🛒</div>
+        <h2>Crear cuenta</h2>
+        <p className="auth-subtitulo">Registrate para acceder al inventario del kiosco</p>
+        <form onSubmit={manejarEnvio} className="auth-formulario">
+          <label className="campo">
+            Usuario
+            <input
+              name="nombre"
+              value={datos.nombre}
+              onChange={manejarCambio}
+              placeholder="Elegí un usuario"
+              required
+            />
+          </label>
+          <label className="campo">
+            Contraseña
+            <input
+              type="password"
+              name="password"
+              value={datos.password}
+              onChange={manejarCambio}
+              placeholder="••••••••"
+              required
+            />
+          </label>
+          {error && <p className="error">{error}</p>}
+          <button className="boton boton--completo" disabled={enviando}>
+            {enviando ? "Creando..." : "Registrarse"}
+          </button>
+        </form>
+        <p className="auth-pie">
+          ¿Ya tenés cuenta? <Link to="/login">Iniciá sesión</Link>
+        </p>
+      </div>
     </main>
   );
 }
