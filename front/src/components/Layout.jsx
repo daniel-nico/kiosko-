@@ -7,21 +7,24 @@ export default function Layout() {
   return (
     <>
       <header className="barra">
-        <strong>Kiosco - Inventario</strong>
-        <nav>
-          <NavLink to="/" end>
-            Inventario
-          </NavLink>
-          {usuario?.rol === "admin" && (
-            <NavLink to="/categorias">Categorías</NavLink>
-          )}
-          <span>
-            {usuario?.nombre} ({usuario?.rol})
-          </span>
-          <button className="boton boton--secundario" onClick={logout}>
-            Salir
-          </button>
-        </nav>
+        <div className="barra__contenido">
+          <span className="barra__marca">🛒 Kiosco</span>
+          <nav className="barra__nav">
+            <NavLink to="/" end>
+              Inventario
+            </NavLink>
+            {usuario?.rol === "admin" && (
+              <NavLink to="/categorias">Categorías</NavLink>
+            )}
+            <div className="barra__usuario">
+              <span>{usuario?.nombre}</span>
+              <span className="badge-rol">{usuario?.rol}</span>
+              <button className="boton boton--secundario boton--chico" onClick={logout}>
+                Salir
+              </button>
+            </div>
+          </nav>
+        </div>
       </header>
 
       <main className="contenedor">

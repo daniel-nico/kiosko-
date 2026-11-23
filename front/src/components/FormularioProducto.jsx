@@ -38,7 +38,7 @@ export default function FormularioProducto({
   }
 
   return (
-    <form onSubmit={manejarEnvio} className="formulario">
+    <form onSubmit={manejarEnvio} className="grid-formulario">
       <label className="campo">
         Nombre
         <input
@@ -105,7 +105,7 @@ export default function FormularioProducto({
 
       {error && <p className="error">{error}</p>}
 
-      <div style={{ display: "flex", gap: "8px" }}>
+      <div className="formulario-acciones">
         <button className="boton" disabled={enviando}>
           {enviando ? "Guardando..." : "Guardar"}
         </button>
